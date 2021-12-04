@@ -50,3 +50,30 @@ def run_game
 
 end
 
+#勝敗判定
+def judge(player, dealer)
+  player_score = player.score_count
+  dealer_score = dealer.score_count
+
+  puts "-----あなたの得点-----"
+  puts "#{player_score}"
+  puts "-----ディーラーの得点-----"
+  puts "#{dealer_score}"
+  
+  puts
+  if dealer.score_count == player_score
+    puts "引き分け"
+  elsif player_score == 21
+    puts "ブラックジャック！\nあなたの勝ちです!"
+  elsif dealer_score == 21
+    puts "ディーラーのブラックジャック!\nあなたの負けです..."
+  elsif dealer_score > 21
+    puts "ディーラーはバーストしました。"
+    puts "あなたの勝ちです!"
+  elsif dealer_score > player_score
+    puts "あなたの負けです..."
+  elsif dealer_score < player_score
+    puts "あなたの勝ちです!"
+  end
+end
+
