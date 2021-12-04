@@ -21,7 +21,7 @@ class Player
   def　score_count
     score = 0
     @hands.each do |hand|
-      score += hand.to_i
+      score += hand.count
     end
     return score
   end
@@ -56,7 +56,7 @@ class Dealer
   def score_count
     score = 0
     @dealer.each do |hand|
-      score += hand.to_i
+      score += hand.count
     end
     return score
   end
