@@ -16,6 +16,16 @@ class Deck
     end
   end
 
+  #山札シャッフル
+  def shuffle
+    cards_length =(@cards.count) - 1
+    cards_length.step(1,-1) do |i|
+      r = rand(i)
+      @cards[i] , @cards[r] = @cards[r], @cards[i]
+    end
+  end
+
+
   # 山札の上から一枚引く
   def draw_card
     # @cardsの配列から一番最後の要素を削除する。削除された要素はpopメソッドの戻り値として渡される。
