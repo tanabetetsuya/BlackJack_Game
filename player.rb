@@ -25,3 +25,17 @@ class Player
     end
     return score
   end
+
+  #最初のドローおよび手札公開
+  def first_draw(deck)
+    2.times do
+      card = deck.draw_card
+      @hands.push(card)
+    end
+
+    puts "------あなたの手札-------"
+    @hands.each_with_index do |hand, i|
+      puts "#{i}枚目: #{hand.show}"
+    end
+    puts "-----------------------"
+  end
