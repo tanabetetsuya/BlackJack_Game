@@ -17,3 +17,4 @@ class Card
         return @number.to_i
       end
   end
+end
