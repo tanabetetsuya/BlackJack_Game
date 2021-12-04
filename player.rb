@@ -39,3 +39,37 @@ class Player
     end
     puts "-----------------------"
   end
+end
+
+class Dealer
+
+  def initialize
+    @dealer_hands = []
+  end
+
+  def draw(deck, player)
+    card = deck.draw_card
+    @dealer_hands.push(card)
+    puts "ディーラーはカードを引きました"
+  end
+
+  def score_count
+    score = 0
+    @dealer.each do |hand|
+      score += hand.to_i
+    end
+    return score
+  end
+  
+  def first_draw(deck)
+    2.times do 
+      card = deck.draw_card
+      @dealer_hands.push(card)
+    end
+
+    puts "-------ディーラーの手札--------"
+    puts "１枚目: #{@dealer_hands.first.show}"
+    puts "2枚目: 伏せられている"
+    puts "----------------------------"
+  end
+end
