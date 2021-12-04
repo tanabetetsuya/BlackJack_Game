@@ -31,3 +31,4 @@ class Deck
     # @cardsの配列から一番最後の要素を削除する。削除された要素はpopメソッドの戻り値として渡される。
     @cards.pop
   end
+end
