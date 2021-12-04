@@ -14,25 +14,39 @@ def run_game
   dealer = Dealer.new
   dealer.first_draw(deck)
   dealer.score_count
-# プレイヤーのターン
-while true do
 
-  puts "さらにカードを引きますか？[Y/N]"
-  puts "あなたの得点: #{player.score_count}"
-  answer = gets.chomp.to_s
-  puts "Answer: #{answer}"
-  if answer == "Y" || answer == "y"
-    player.draw(deck, player)
-    unless burst?(player)
-      exit
+    # プレイヤーのターン
+    while true do
+
+      puts "さらにカードを引きますか？[Y/N]"
+      puts "あなたの得点: #{player.score_count}"
+      answer = gets.chomp.to_s
+      puts "Answer: #{answer}"
+      if answer == "Y" || answer == "y"
+        player.draw(deck, player)
+        unless burst?(player)
+          exit
+        end
+        unless blackjack?(player)
+          break
+        end
+      elsif answer == "N" || answer == "n"
+        break
+      else
+        puts "無効な値です。もう一度入力してください"
+      end
     end
-    unless blackjack?(player)
-      break
+
+    # ディーラーのターン
+    while true do 
+      if dealer.score_count < 17
+        dealer.draw(deck, dealer)
+      else
+        break
+      end
     end
-  elsif answer == "N" || answer == "n"
-    break
-  else
-    puts "無効な値です。もう一度入力してください"
-  end
+
+  judge(player, dealer)
+
 end
 
