@@ -77,3 +77,29 @@ def judge(player, dealer)
   end
 end
 
+#バーストしたか
+def burst?(player)
+  if player.score_count <= 21
+    return true
+  else
+    puts "あなたの得点: #{player.score_count}"
+    puts "バーストしました。あなたの負けです。"
+    return false
+  end
+end
+
+#ブラックジャックしたか
+def blackjack?(player)
+  if player.score_count == 21
+    return false
+  else
+    return true
+  end 
+end
+
+puts "--------------------------"
+puts "ブラックジャックへようこそ！"
+puts "--------------------------"
+puts run_game
+
+
