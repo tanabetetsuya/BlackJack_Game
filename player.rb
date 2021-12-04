@@ -16,3 +16,12 @@ class Player
     end
     puts "--------------------"
   end
+
+  #得点計算
+  def　score_count
+    score = 0
+    @hands.each do |hand|
+      score += hand.to_i
+    end
+    return score
+  end
